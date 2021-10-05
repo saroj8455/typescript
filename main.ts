@@ -25,3 +25,19 @@ function log(code: any): void {
 
 log('8888')  // [LOG]: true 
 log({id:1011}) //[LOG]: "Failed",  "Not a number"
+
+//Async and Await example code 
+
+const BASE_API = 'https://jsonplaceholder.typicode.com/users'
+const logUserInfo = async (url: string): Promise<any[] | string> =>{
+    const response = await fetch(url);
+    const users = await response.json();
+    return users;
+}
+
+const  log = async ()=> {
+const output = await logUserInfo(BASE_API)
+console.log(output)
+}
+
+log() //log the user information
